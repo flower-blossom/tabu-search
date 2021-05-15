@@ -5,8 +5,7 @@ class Customer():
 
     def __init__(self, id, coordinate):
         self.id = id
-        self.coordinate = (float(coordinate[0]), float(coordinate[1]))
-        # self.coordinate = coordinate
+        self.coordinate = coordinate
 
     def __repr__(self):
-        return f'Customer ID: {self.id}, Address: {self.coordinate}.'
+        return f'Customer ID: {self.id}, Latitude: {self.coordinate["lat"]}, Longitude: {self.coordinate["lon"]}.'
