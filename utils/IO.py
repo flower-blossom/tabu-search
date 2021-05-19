@@ -1,17 +1,13 @@
-# import itertools
 import numpy as np
-import itertools
+import itertools, os, sys
 
-import os
 # get current directory
 path = os.getcwd()
 parent = os.path.dirname(path)
 
-import sys
-# sys.path.append("D:\Tan Phan\TSP")
-sys.path.append(parent)
-
+sys.path.append(path)
 from dataModels import Customer, DataModel, Cost
+from algorithms import Greedy
 from utils import distances
 
 def getDataModel(filename,  **params):
@@ -169,9 +165,37 @@ def getDataModel(filename,  **params):
         for i, j in itertools.product(range(DIMENSION), repeat = 2):
             distancesMatrix[i][j] = distances.getDistance(customersDict[f'Customer {i + 1}'], 
             customersDict[f'Customer {j + 1}'], EdgeWeightType)
-    costs = Cost(distancesMatrix)
-    dataModel = DataModel(customersDict, distancesMatrix, dataDescription)
+    costs = Cost.Cost(distancesMatrix)
+    dataModel = DataModel.DataModel(customersDict, distancesMatrix, dataDescription)
     return costs, dataModel
+
+
+test = getDataModel('bayg29.tsp')
+solver = Greedy.greedy(test[1])
+print(solver)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Tests
 # print(NAME)
