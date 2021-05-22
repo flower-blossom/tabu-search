@@ -4,8 +4,8 @@ import itertools, os, sys
 # get current directory
 path = os.getcwd()
 parent = os.path.dirname(path)
+sys.path.append(parent)
 
-sys.path.append(path)
 from dataModels import Customer, DataModel, Cost
 from algorithms import Greedy
 from utils import distances
@@ -33,29 +33,30 @@ def getDataModel(filename,  **params):
         node = nodeData[i].split()
         if ':' in node:
             node.remove(':')
-
-        if 'NAME' in node[0]:
-            NAME = node[1]
-        if 'TYPE' in node[0]:
-            TYPE = node[1]
-        if 'COMMENT' in node[0]:
-            for word in node[1:]:
-                COMMENT += word + ' '
-            COMMENT = COMMENT[:-1]
-        if 'DIMENSION' in node[0]:
-            DIMENSION = int(node[1])
-        if 'EDGE_WEIGHT_TYPE' in node[0]:
-            EdgeWeightType = node[1]
-        if 'EDGE_WEIGHT_FORMAT' in node[0]:
-            EdgeWeightFormat = node[1]
-        if 'DISPLAY_DATA_TYPE' in node[0]:
-            DisplayDataType = node[1]
-        if 'EDGE_WEIGHT_SECTION' in node[0]:
-            EdgeWeightSectionIndex = i + 1
-        if 'DISPLAY_DATA_SECTION' in node[0]:
-            DisplayDataSectionIndex = i + 1
-        if 'NODE_COORD_SECTION' in node[0]:
-            NodeCoordSectionIndex = i + 1
+        # print(node)
+        if len(node) != 0:
+            if 'NAME' in node[0]:
+                NAME = node[1]
+            if 'TYPE' in node[0]:
+                TYPE = node[1]
+            if 'COMMENT' in node[0]:
+                for word in node[1:]:
+                    COMMENT += word + ' '
+                COMMENT = COMMENT[:-1]
+            if 'DIMENSION' in node[0]:
+                DIMENSION = int(node[1])
+            if 'EDGE_WEIGHT_TYPE' in node[0]:
+                EdgeWeightType = node[1]
+            if 'EDGE_WEIGHT_FORMAT' in node[0]:
+                EdgeWeightFormat = node[1]
+            if 'DISPLAY_DATA_TYPE' in node[0]:
+                DisplayDataType = node[1]
+            if 'EDGE_WEIGHT_SECTION' in node[0]:
+                EdgeWeightSectionIndex = i + 1
+            if 'DISPLAY_DATA_SECTION' in node[0]:
+                DisplayDataSectionIndex = i + 1
+            if 'NODE_COORD_SECTION' in node[0]:
+                NodeCoordSectionIndex = i + 1
 
     dataDescription = {'name': NAME, 'type': TYPE, 'comment': COMMENT, 'dimension': DIMENSION}
 
@@ -72,7 +73,7 @@ def getDataModel(filename,  **params):
     customersDict = {}
 
     if nodeStartIndex:
-        while nodeData[nodeStartIndex] != 'EOF\n':
+        while 'EOF' not in nodeData[nodeStartIndex]:
             if ' ' in nodeData[nodeStartIndex]:
                 customerData = nodeData[nodeStartIndex].split(' ')
             elif '\t' in nodeData[nodeStartIndex]:
@@ -80,8 +81,6 @@ def getDataModel(filename,  **params):
             customerData = [i for i in customerData if i != '' and i != '\n']
             customerData[-1] = customerData[-1][:-1]
 
-            # if EdgeWeightType in ['EUC_3D', 'MAN_3D', 'MAX_3D']:
-            #     NodeCoordSection[customerData[0]] = (float(customerData[1]), float(customerData[2]), float(customerData[3]))
             if EdgeWeightType == 'GEO':
                 NodeCoordSection[customerData[0]] = {'lat': distances.getLatitude(float(customerData[1])), 
                                                     'lon': distances.getLatitude(float(customerData[2]))}
@@ -115,7 +114,6 @@ def getDataModel(filename,  **params):
             rowData = [num for num in rowData if num != '' and num != '\n']
             distanceDataList += rowData
             distancesStartIndex += 1
-        # print('len distanceDataList: ', len(distanceDataList))
 
         if EdgeWeightFormat == 'FULL_MATRIX':
             for i in range(DIMENSION):
@@ -169,33 +167,9 @@ def getDataModel(filename,  **params):
     dataModel = DataModel.DataModel(customersDict, distancesMatrix, dataDescription)
     return costs, dataModel
 
-
-test = getDataModel('bayg29.tsp')
+test = getDataModel('vm1084.tsp')
 solver = Greedy.greedy(test[1])
 print(solver)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Tests
 # print(NAME)
