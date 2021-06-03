@@ -40,7 +40,7 @@ class SimulatedAnneling():
     def accept(self, candidate):
         """
         Accept with probability 1 if candidate is better than current.
-        Accept with probabilty p_accept(..) if candidate is worse.
+        Accept with probabilty acceptP(..) if candidate is worse.
         """
         candidateFitness = candidate.totalLength()
         print(f'candidate fitness: {candidateFitness}')
