@@ -7,7 +7,7 @@ parent = os.path.dirname(path)
 sys.path.append(parent)
 
 from dataModels import Customer, DataModel, Cost
-from algorithms import Greedy
+from algorithms import Greedy, SimulatedAnnealing
 from utils import distances
 
 def getDataModel(filename,  **params):
@@ -167,19 +167,11 @@ def getDataModel(filename,  **params):
     dataModel = DataModel.DataModel(customersDict, distancesMatrix, dataDescription)
     return costs, dataModel
 
-test = getDataModel('vm1084.tsp')
+test = getDataModel('ulysses22.tsp')
 solver = Greedy.greedy(test[1])
 print(solver)
 
-# Tests
-# print(NAME)
-# print(TYPE)
-# print(COMMENT)
-# print(DIMENSION)
-# print(EdgeWeightType)
-# print(NodeCoordSectionIndex)
-# print(NodeCoordSection)
-# print(customersDict)
-# print(distancesMatrix)
-# print(EdgeWeightFormat)
-# print(DisplayDataSectionIndex)
+simAnn = SimulatedAnnealing.SimulatedAnneling(test[1])
+# simAnn.anneal()
+simAnn.batchAnneal()
+print(simAnn.bestSolution, simAnn.bestFitness)
