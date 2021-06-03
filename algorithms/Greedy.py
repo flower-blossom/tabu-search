@@ -1,6 +1,16 @@
 # input: a dataModel
 from numpy import amax, array
 
+import random
+import os, sys
+
+# get current directory
+path = os.getcwd()
+parent = os.path.dirname(path)
+sys.path.append(parent)
+
+from dataModels import Solution
+
 def findNextCustomer(arr, solver, checkCustomer, existingCustomers, maxDistance):
     minDistance = maxDistance
     nextCustomer = -1
@@ -15,14 +25,15 @@ def findNextCustomer(arr, solver, checkCustomer, existingCustomers, maxDistance)
                 
 def greedy(dataModel):
     distancesMatrix = dataModel.distancesMatrix
-    solutionMatrix = []
+    solutionList = []
     # Arr check customer was pass
     checkCustomer = [True for i in range(len(distancesMatrix))]
-    existingCustomers = 0
+    # existingCustomers = 0
+    existingCustomers = random.choices(range(len(distancesMatrix)))
     maxDistance = amax(distancesMatrix)
     while True in checkCustomer:
         existingCustomers = findNextCustomer(distancesMatrix, 
-                                             solutionMatrix, checkCustomer, existingCustomers, maxDistance)
-    solutionMatrix = array([i + 1 for i in solutionMatrix])
-    return solutionMatrix
-
+                                             solutionList, checkCustomer, existingCustomers, maxDistance)
+    solutionList = [i + 1 for i in solutionList]
+    # return solutionList
+    return Solution.Solution(solutionList, dataModel)
