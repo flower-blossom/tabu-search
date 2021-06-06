@@ -1,0 +1,3 @@
+\beamer@sectionintoc {1}{Gi\IeC {\h a}i thu\IeC {\d \acircumflex }t leo \IeC {\dj }\IeC {\`\ocircumflex }i (Hill Climbing)}{4}{0}{1}
+\beamer@sectionintoc {2}{Tabu Search}{5}{0}{2}
+\beamer@sectionintoc {3}{\IeC {\'A}p d\IeC {\d u}ng Tabu Search v\IeC {\`a}o b\IeC {\`a}i to\IeC {\'a}n TSP}{6}{0}{3}
