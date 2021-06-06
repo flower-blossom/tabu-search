@@ -3,8 +3,11 @@ class Cost():
     def __init__(self, distancesMatrix):
         self.distancesMatrix = distancesMatrix
     
-    def getCost(self, customer1, customer2):
-        return distancesMatrix[customer1, customer2]
+    def getCost(self, customer1Idx, customer2Idx):
+        '''
+        Return the distance between two customers corresponding their indexs
+        '''
+        return self.distancesMatrix[customer1Idx][customer2Idx]
 
 
 
