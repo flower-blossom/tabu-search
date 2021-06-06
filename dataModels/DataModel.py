@@ -11,4 +11,5 @@ class DataModel():
         description += 'Customers data:\n'
         for customer in self.customerDict:
             description += f'{self.customerDict[customer]}\n'
+        description = description[:-1]
         return description
