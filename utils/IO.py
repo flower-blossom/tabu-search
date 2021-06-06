@@ -1,17 +1,11 @@
 import numpy as np
-import itertools, os, sys
-
-# get current directory
-path = os.getcwd()
-parent = os.path.dirname(path)
-sys.path.append(parent)
+import itertools, os
 
 from dataModels import Customer, DataModel, Cost
-from algorithms import Greedy, SimulatedAnnealing
 from utils import distances
 
-def getDataModel(filename,  **params):
-    '''Return a dataModel in the specific filename'''
+def readTSPLib(filename,  **params):
+    '''Return cost and dataModel in the specific filename'''
     node_data_filename = "/../data/" + filename
 
     with open(os.path.dirname(__file__) + node_data_filename) as f_obj:
@@ -58,7 +52,7 @@ def getDataModel(filename,  **params):
             if 'NODE_COORD_SECTION' in node[0]:
                 NodeCoordSectionIndex = i + 1
 
-    dataDescription = {'name': NAME, 'type': TYPE, 'comment': COMMENT, 'dimension': DIMENSION}
+    dataDescription = {'NAME': NAME, 'TYPE': TYPE, 'COMMENT': COMMENT, 'DIMENSION': DIMENSION}
 
     # Create a dict that contains data about the nodes (id, x, y)
     NodeCoordSection = {}
@@ -164,14 +158,5 @@ def getDataModel(filename,  **params):
             distancesMatrix[i][j] = distances.getDistance(customersDict[f'Customer {i + 1}'], 
             customersDict[f'Customer {j + 1}'], EdgeWeightType)
     costs = Cost.Cost(distancesMatrix)
-    dataModel = DataModel.DataModel(customersDict, distancesMatrix, dataDescription)
+    dataModel = DataModel.DataModel(customersDict, dataDescription)
     return costs, dataModel
-
-test = getDataModel('ulysses22.tsp')
-solver = Greedy.greedy(test[1])
-print(solver)
-
-simAnn = SimulatedAnnealing.SimulatedAnneling(test[1])
-# simAnn.anneal()
-simAnn.batchAnneal()
-print(simAnn.bestSolution, simAnn.bestFitness)
