@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2021.3.27)  8 JUN 2021 17:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2021.3.27)  8 JUN 2021 20:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1558,7 +1558,7 @@ al/texlive/2019/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texli
 ve/2019/texmf-dist/fonts/type1/public/lm/lmsso12.pfb></usr/local/texlive/2019/t
 exmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2019/texmf-dist/
 fonts/type1/public/lm/lmsy8.pfb>
-Output written on Tabu_TSP.pdf (13 pages, 211803 bytes).
+Output written on Tabu_TSP.pdf (13 pages, 211794 bytes).
 PDF statistics:
  179 PDF objects out of 1000 (max. 8388607)
  143 compressed objects within 2 object streams
