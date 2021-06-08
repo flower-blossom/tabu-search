@@ -1,0 +1,24 @@
+Github
+
+List of folders
+1. data
+
+2. solvers
+
+3. algorithms
+
+4. dataModel
+(classes: Customer(id, coordinate); Cost() - distancesMatrix, getCost(); Solution() - ids or Customers;
+InFeasible() - check if the input solution is infeasible; DataModel() - Customers, distancesMatrix, ...)
+
+5. utils (IO, distances.py, ...)
+
+Step 1: Implement 4, 5
+
+Step 2: Greedy
+
+Step 3: Test solver: Gurobi, Or-Tool (PuLP)
+
+Step 4: Follow algorithms in timetabling group
+
+Data source: http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/tsp/
