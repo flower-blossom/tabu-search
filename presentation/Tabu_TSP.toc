@@ -1,3 +1,4 @@
-\beamer@sectionintoc {1}{Gi\IeC {\h a}i thu\IeC {\d \acircumflex }t leo \IeC {\dj }\IeC {\`\ocircumflex }i (Hill Climbing)}{4}{0}{1}
-\beamer@sectionintoc {2}{Tabu Search}{5}{0}{2}
-\beamer@sectionintoc {3}{\IeC {\'A}p d\IeC {\d u}ng Tabu Search v\IeC {\`a}o b\IeC {\`a}i to\IeC {\'a}n TSP}{6}{0}{3}
+\beamer@sectionintoc {1}{Search Space and Neighbor Structure}{3}{0}{1}
+\beamer@sectionintoc {2}{Tabus}{6}{0}{2}
+\beamer@sectionintoc {3}{Aspiration Criterion}{10}{0}{3}
+\beamer@sectionintoc {4}{Tabu Search trong b\IeC {\`a}i to\IeC {\'a}n TSP}{12}{0}{4}
