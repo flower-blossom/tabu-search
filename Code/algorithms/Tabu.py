@@ -159,7 +159,7 @@ class Tabu_search():
             termination_criteria_status = False
             neighbors_list = [self.create_solution_neighbor(sample(range(0, len(self.distance_matrix)), k=2)) for i in range(len(self.distance_matrix) * 10)]
             best_neighbor_solution, termination_criteria_status = self.main_tabu(neighbors_list, tabus, termination_criteria_status)
-            print(tabus)
+            # print(tabus)
             if termination_criteria_status == True:
                 count = 0
             else:

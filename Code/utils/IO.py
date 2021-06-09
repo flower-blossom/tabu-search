@@ -166,8 +166,8 @@ def readTSPLib(filename,  **params):
     dataModel = DataModel.DataModel(customersDict, dataDescription)
     return costs, dataModel
 # test = [1, 14, 13 ,12 ,7, 6, 15, 5, 11, 9, 10, 16, 3, 2, 4, 8]
-a = readTSPLib("att48.tsp")[0]
-# a = readTSPLib("ulysses16.tsp")[0]
+# a = readTSPLib("att48.tsp")[0]
+a = readTSPLib("ulysses16.tsp")[0]
 # test1 = Solution.Solution(test, a)
 # seed(4)
 b = Greedy.Greedy(a)
