@@ -27,8 +27,8 @@
 	\begin{frame}
 		\frametitle{Search Space and Neighbor Structure}
 		\begin{itemize}
-			\item Search Space - Không gian tìm kiếm: Là khoảng không gian của tất cả các giải pháp có thể xem xét (ghé thăm) trong quá trình tìm kiếm.
-			\item Neighbor Structure - Cấu trúc vùng lân cận: Là một tập con của Search Space định nghĩa bởi\\
+			\item Không gian tìm kiếm: Là khoảng không gian của tất cả các giải pháp có thể xem xét (ghé thăm) trong quá trình tìm kiếm.
+			\item Cấu trúc vùng lân cận: Là một tập con của Không gian tìm kiếm định nghĩa bởi\\
 					$N(S) = \{ $giải pháp thu được bằng cách áp dụng một biến đổi cục bộ duy nhất cho S$ \}$
 		\end{itemize}
 	\end{frame}
@@ -39,8 +39,8 @@
 		*phát biểu TSP\\
 		Với bài toán TSP:\\
 		\begin{itemize}
-			\item Search Space là tập hợp tất cả các cách đi khả thi của người bán hàng
-			\item Với một cách đi S của người bán hàng (giả sử là 1-2-3-4-5) thì bằng cách đổi chỗ 2 thành phố bất kì trong cách đi trên ta thu được một tập hợp các nước đi và đó là Neighbor Structure của S.
+			\item Không gian tìm kiếm là tập hợp tất cả các cách đi khả thi của người bán hàng
+			\item Với một cách đi S của người bán hàng (giả sử là 1-2-3-4-5) thì bằng cách đổi chỗ 2 thành phố bất kì trong cách đi trên ta thu được một cách đi (ví dụ 1-3-2-4-5) và đó là một lân cận của S.
 		\end{itemize}
 	\end{frame}
 	
@@ -61,7 +61,7 @@
 
 	\begin{frame}
 		\frametitle{Tabus}
-		Một bước đi được gọi là Tabu nếu nó đã được đi trong vòng một số lần tìm kiếm trước đó.\\
+%		Một bước đi được gọi là Tabu nếu nó đã được đi trong một số lần tìm kiếm trước đó.\\
 		Tabus được lưu trữ trong bộ nhớ ngắn hạn của cuộc tìm kiếm (tabu list)\\
 		Ví dụ:\\
 		*thay bằng TSP
