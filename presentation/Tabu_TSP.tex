@@ -36,11 +36,10 @@
 	\begin{frame}
 		\frametitle{Search Space and Neighbor Structure}
 		Ví dụ:\\
-		*phát biểu TSP\\
-		Với bài toán TSP:\\
+		Một người giao hàng cần đi giao hàng tại 5 thành phố. Xuất phát từ một thành phố bất kì, đi qua các thành phố khác  và trở về thành phố ban đầu, mỗi thành phố chỉ đến một lần. Hãy tìm một đường đi thỏa mãn điều kiện trên sao cho tổng độ dài là nhỏ nhất.\\
 		\begin{itemize}
 			\item Không gian tìm kiếm là tập hợp tất cả các cách đi khả thi của người bán hàng
-			\item Với một cách đi S của người bán hàng (giả sử là 1-2-3-4-5) thì bằng cách đổi chỗ 2 thành phố bất kì trong cách đi trên ta thu được một cách đi (ví dụ 1-3-2-4-5) và đó là một lân cận của S.
+			\item Với một cách đi S của người bán hàng (giả sử là a-b-c-d-e) thì bằng cách đổi chỗ 2 thành phố bất kì trong cách đi trên ta thu được một cách đi (ví dụ a-c-b-d-e) và đó là một lân cận của S.
 		\end{itemize}
 	\end{frame}
 	
@@ -64,7 +63,7 @@
 %		Một bước đi được gọi là Tabu nếu nó đã được đi trong một số lần tìm kiếm trước đó.\\
 		Tabus được lưu trữ trong bộ nhớ ngắn hạn của cuộc tìm kiếm (tabu list)\\
 		Ví dụ:\\
-		*thay bằng TSP
+		Như ở ví dụ trước để có được cách đi a-c-b-d-e từ a-b-c-d-e ta đã đổi chỗ b từ vị trí 2 đến 3 nên tabus có thể lưu $(b, 3, 2)$ nghĩa là ngăn b di chuyển từ 2 về 3 hoặc $(b, 2)$ để ngăn b di chuyển về 2 bất kể đang ở đâu hay đơn giản là $(b)$ để ngăn không cho b di chuyển.
 	\end{frame}
 	
 	\section{Aspiration Criterion}
