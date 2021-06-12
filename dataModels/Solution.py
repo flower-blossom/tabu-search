@@ -2,17 +2,26 @@ class Solution():
     '''
     A class that contains the solution list 
     '''
-    # def __init__(self, solutionList):
-    #     self.solutionList = solutionList
-    #     self.totalLength = self.totalLength()
-
-    def __init__(self):
-        self.solutionList = []
-        self.totalLength = 0
+    def __init__(self, solutionList, cost = None, distancesMatrix = None):
+        self.solutionList = solutionList
+        self.distancesMatrix = []
+        self.totalDistance = 0
+        self.getDistancesMatrix(cost, distancesMatrix)
 
     def __repr__(self):
         return str(self.solutionList)
- 
+
+    def getDistancesMatrix(self, cost = None, distancesMatrix = None):
+        if cost != None:
+            self.distancesMatrix = cost.distancesMatrix
+            self.totalDistance = self.totalLength()
+        elif distancesMatrix != None:
+            self.distancesMatrix = distancesMatrix
+            self.totalDistance = self.totalLength()
+        else:
+            self.totalDistance = 0
+
+
     def insertCustomer(self, customerIdx, cost, pos=-1):
         '''
         Insert a customer to the solutionList, default position is the end of the solutionList
@@ -58,19 +67,18 @@ class Solution():
 
         self.totalLength += d
 
-    # def totalLength(self):
-    #     '''
-    #     Total distance of the current solution path.
-    #     '''
-    #     length = 0
+    def totalLength(self):
+        '''
+        Total distance of the current solution path.
+        '''
+        length = 0
 
-    #     # add distances from the first node to the last node
-    #     for i in range(len(self.solutionList)-1):
-    #         currentCustomerIndex = int(self.solutionList[i] - 1)
-    #         nextCustomerIndex = int(self.solutionList[i+1] - 1)
-    #         length += self.dataModel.distancesMatrix[currentCustomerIndex][nextCustomerIndex]
+        # add distances from the first node to the last node
+        for i in range(len(self.solutionList)-1):
+            currentCustomerIndex = int(self.solutionList[i] - 1)
+            nextCustomerIndex = int(self.solutionList[i+1] - 1)
+            length += self.distancesMatrix[currentCustomerIndex][nextCustomerIndex]
 
-    #     # add distance from the last node to the first node
-    #     length += self.dataModel.distancesMatrix[self.solutionList[0] - 1][self.solutionList[-1] - 1]
-        
-    #     return length
+        # add distance from the last node to the first node
+        length += self.distancesMatrix[self.solutionList[0] - 1][self.solutionList[-1] - 1]
+        return length

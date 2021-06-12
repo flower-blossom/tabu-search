@@ -1,8 +1,9 @@
 import numpy as np
 import itertools, os
 
-from dataModels import Customer, DataModel, Cost
+from dataModels.Solution import Solution
 from utils import distances
+
 
 def readTSPLib(filename,  **params):
     '''Return cost and dataModel in the specific filename'''
@@ -160,3 +161,40 @@ def readTSPLib(filename,  **params):
     costs = Cost.Cost(distancesMatrix)
     dataModel = DataModel.DataModel(customersDict, dataDescription)
     return costs, dataModel
+
+def readOPTLib(filename,  **params):
+    node_data_filename = "/../data/" + filename
+
+    with open(os.path.dirname(__file__) + node_data_filename) as f_obj:
+        nodeData = f_obj.readlines()
+
+    indexFirstCustomer = 0
+    indexLastCustomer = 0
+    optSolution = []
+    
+    for line in nodeData:
+        if 'TOUR_SECTION' in line:
+            indexFirstCustomer = nodeData.index(line) + 1
+            break
+    
+    for index in range(len(nodeData) - 1, 0, -1):
+        if '-1' in nodeData[index]:
+            indexLastCustomer = index - 1
+            break
+
+    # Find optSolution
+    if nodeData[indexFirstCustomer] == nodeData[indexLastCustomer]:
+        optSolution = nodeData[indexFirstCustomer].strip("\n").split(" ")
+    else:
+        if len(nodeData[indexFirstCustomer]) == 2:
+            for line in nodeData[indexFirstCustomer : indexLastCustomer + 1]:
+                optSolution.append(line.strip("\n"))
+        elif len(nodeData[indexFirstCustomer]) > 2:
+            for line in nodeData[indexFirstCustomer : indexLastCustomer + 1]:
+                customerInLine = line.strip("\n").split(" ")
+                customerInLine = [i for i in customerInLine if i != '']
+                optSolution.extend(customerInLine) 
+
+    optSolution = [int(i) for i in optSolution]
+    print(optSolution)
+    return Solution(optSolution)
