@@ -1,8 +1,7 @@
 # input: a dataModel
 
 import random
-import os, sys
-from numpy import amax, array
+from numpy import amax
 
 from dataModels.Solution import Solution
 
