@@ -22,17 +22,17 @@
 		\frametitle{Outline}
 		\tableofcontents
 	}
-
+	
 	\section{Search Space and Neighbor Structure}
 	\begin{frame}
 		\frametitle{Search Space and Neighbor Structure}
 		\begin{itemize}
 			\item Không gian tìm kiếm: Là khoảng không gian của tất cả các giải pháp có thể xem xét (ghé thăm) trong quá trình tìm kiếm.
 			\item Cấu trúc vùng lân cận: Là một tập con của Không gian tìm kiếm định nghĩa bởi\\
-					$N(S) = \{ $giải pháp thu được bằng cách áp dụng một biến đổi cục bộ duy nhất cho S$ \}$
+			$N(S) = \{ $giải pháp thu được bằng cách áp dụng một biến đổi cục bộ duy nhất cho S$ \}$
 		\end{itemize}
 	\end{frame}
-
+	
 	\begin{frame}
 		\frametitle{Search Space and Neighbor Structure}
 		Ví dụ:\\
@@ -45,22 +45,22 @@
 	
 	\section{Tabus}
 	\begin{frame}
-		\frametitle{Hill Climbing}
-		Giải thuật leo đồi (Hill Climbing): Ở mỗi lần lặp, tìm giải pháp tốt hơn giải pháp hiện tại trong vùng lân cận (Neighbor Structure), nếu không có thì thuật toán dừng lại. Điều đó dẫn đến thuật toán có thể bị kẹt lại tối ưu cục bộ.\\
+		\frametitle{Giải thuật leo đồi}
+		Giải thuật leo đồi: Ở mỗi lần lặp, tìm giải pháp tốt hơn giải pháp hiện tại trong vùng lân cận , nếu không có thì thuật toán dừng lại. Điều đó dẫn đến thuật toán có thể bị kẹt lại tối ưu cục bộ.\\
 		Ví dụ:\\
 		\includegraphics[scale=0.4]{HillClimbing.png}\\
 	\end{frame}
-
+	
 	\begin{frame}
 		\frametitle{Tabus}
 		Tabu Search cho phép di chuyển khỏi tối ưu cục bộ bằng các bước đi không cải thiện.\\
 		Khi đó, có khả năng rằng thuật toán sẽ đi ngược lại những bước đã đi qua và trở về điểm xuất phát. Như vậy ta cần làm gì đó để ngăn không cho điều này xảy ra.\\
 		Ta thực hiện việc này bằng cách sử dụng Tabus.
 	\end{frame}
-
+	
 	\begin{frame}
 		\frametitle{Tabus}
-%		Một bước đi được gọi là Tabu nếu nó đã được đi trong một số lần tìm kiếm trước đó.\\
+		%		Một bước đi được gọi là Tabu nếu nó đã được đi trong một số lần tìm kiếm trước đó.\\
 		Tabus được lưu trữ trong bộ nhớ ngắn hạn của cuộc tìm kiếm (tabu list)\\
 		Ví dụ:\\
 		Như ở ví dụ trước để có được cách đi a-c-b-d-e từ a-b-c-d-e ta đã đổi chỗ b từ vị trí 2 đến 3 nên tabus có thể lưu $(b, 3, 2)$ nghĩa là ngăn b di chuyển từ 2 về 3 hoặc $(b, 2)$ để ngăn b di chuyển về 2 bất kể đang ở đâu hay đơn giản là $(b)$ để ngăn không cho b di chuyển.
@@ -72,15 +72,17 @@
 		Như đã nói ở trên, Tabu Search cho phép các bước di chuyển mà không cải thiện để có thể ra khỏi tối ưu cục bộ.\\
 		Đó là khi Aspiration Criterion(Tiêu chí khát vọng) được sử dụng.\\
 		Ví dụ:\\
-		*cho hàm cụ thể\\
-		Ta đang ở trạng thái $x$, trong khi đó $x^*$ là giải pháp tốt nhất cho đến hiện tại.\\
-		Bước đi $x'$ là bước đi không cải thiện nếu $P(x') \le P(x^*)$ và bước đi này vẫn được chấp thuận nếu $P(x') \ge P(x)$
+		Maximum: $f(x) = -x^{12} + 3x^3 - x$
+		\begin{wrapfigure}{r}{5cm}
+			\includegraphics[width=4.5cm]{AC.png}
+		\end{wrapfigure}
+		
 	\end{frame}
-
+	
 	\section{Tabu Search trong bài toán TSP}
 	\begin{frame}
 		\frametitle{Tabu Search trong bài toán TSP}
-			
+		
 		Áp dụng Tabu Search vào bài toán TSP\\
 		\begin{enumerate}[Bước 1:]
 			\item Sử dụng thuật toán Greedy để tìm ra một đáp án và chọn đáp án đó làm điểm khởi đầu (Starting Solution).
