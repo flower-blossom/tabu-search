@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2021.2.23)  16 JUN 2021 04:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2021.2.23)  17 JUN 2021 02:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1457,7 +1457,7 @@ LaTeX Font Warning: Font shape `OMS/lmss/m/n' undefined
 ] [6
 
 ]
-<HillClimbing.png, id=77, 675.52374pt x 311.1625pt>
+<HillClimbing.png, id=89, 675.52374pt x 311.1625pt>
 File: HillClimbing.png Graphic file (type png)
 <use HillClimbing.png>
 Package pdftex.def Info: HillClimbing.png  used on input line 52.
@@ -1471,7 +1471,7 @@ Package pdftex.def Info: HillClimbing.png  used on input line 52.
 ] [10
 
 ]
-<AC.png, id=102, 703.62875pt x 565.11125pt>
+<AC.png, id=114, 703.62875pt x 565.11125pt>
 File: AC.png Graphic file (type png)
 <use AC.png>
 Package pdftex.def Info: AC.png  used on input line 78.
@@ -1492,6 +1492,32 @@ Overfull \vbox (21.36722pt too high) detected at line 96
 [13
 
 ]
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\h' on input line 98.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\ohorn' on input line 98.
+
+
+Package hyperref Warning: Composite letter `\textdotbelow+\ocircumflex'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textdotbelow' on input line 98.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\ocircumflex' on input line 98.
+
+[14
+
+] [15
+
+] [16
+
+] [17
+
+]
 \tf@nav=\write6
 \openout6 = `Tabu_TSP.nav'.
 
@@ -1501,23 +1527,23 @@ Overfull \vbox (21.36722pt too high) detected at line 96
 \tf@snm=\write8
 \openout8 = `Tabu_TSP.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 97.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 97.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 123.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 123.
  (./Tabu_TSP.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 97.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 97.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 123.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 123.
 Package rerunfilecheck Info: File `Tabu_TSP.out' has not changed.
-(rerunfilecheck)             Checksum: 70E6CB6617CE91A094E35301455F272C;236.
+(rerunfilecheck)             Checksum: 68416C91FB34E94D4D99861BF7EB5F53;329.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 31577 strings out of 492623
- 615421 string characters out of 6133290
+ 31607 strings out of 492623
+ 615701 string characters out of 6133290
  672819 words of memory out of 5000000
- 34895 multiletter control sequences out of 15000+600000
+ 34915 multiletter control sequences out of 15000+600000
  616069 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,13n,88p,1807b,731s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1532,10 +1558,10 @@ ic/lm/lmss12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c
 exmf-dist/fonts/type1/public/lm/lmsso10.pfb><c:/texlive/2019/texmf-dist/fonts/t
 ype1/public/lm/lmsso12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lm
 sy10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on Tabu_TSP.pdf (13 pages, 262168 bytes).
+Output written on Tabu_TSP.pdf (17 pages, 267275 bytes).
 PDF statistics:
- 170 PDF objects out of 1000 (max. 8388607)
- 133 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
- 85 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 205 PDF objects out of 1000 (max. 8388607)
+ 164 compressed objects within 2 object streams
+ 41 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 

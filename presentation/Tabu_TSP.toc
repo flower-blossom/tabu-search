@@ -2,3 +2,5 @@
 \beamer@sectionintoc {2}{Tabus}{6}{0}{2}
 \beamer@sectionintoc {3}{Aspiration Criterion}{10}{0}{3}
 \beamer@sectionintoc {4}{Tabu Search trong b\IeC {\`a}i to\IeC {\'a}n TSP}{12}{0}{4}
+\beamer@sectionintoc {5}{M\IeC {\h \ohorn } R\IeC {\d \ocircumflex }ng}{14}{0}{5}
+\beamer@sectionintoc {6}{Trick of the Trade}{16}{0}{6}
