@@ -2,6 +2,8 @@ import numpy as np
 import itertools, os
 
 from dataModels.Solution import Solution
+from dataModels.DataModel import DataModel
+from dataModels.Customer import Customer
 from utils import distances
 
 
@@ -84,10 +86,10 @@ def readTSPLib(filename,  **params):
             nodeStartIndex += 1
 
         for node in NodeCoordSection:
-            customersDict[f'Customer {node}'] = Customer.Customer(node, NodeCoordSection[node])
+            customersDict[f'Customer {node}'] = Customer(node, NodeCoordSection[node])
     else:
         for i in range(1, 1 + DIMENSION):
-            customersDict[f'Customer {i}'] = Customer.Customer(str(i), {'lat': 'na', 'lon': 'na'})
+            customersDict[f'Customer {i}'] = Customer(str(i), {'lat': 'na', 'lon': 'na'})
 
 
     # Create a numpy array for the distance matrix
@@ -158,11 +160,10 @@ def readTSPLib(filename,  **params):
         for i, j in itertools.product(range(DIMENSION), repeat = 2):
             distancesMatrix[i][j] = distances.getDistance(customersDict[f'Customer {i + 1}'], 
             customersDict[f'Customer {j + 1}'], EdgeWeightType)
-    costs = Cost.Cost(distancesMatrix)
-    dataModel = DataModel.DataModel(customersDict, dataDescription)
-    return costs, dataModel
+    dataModel = DataModel(customersDict, dataDescription, distancesMatrix)
+    return dataModel
 
-def readOPTLib(filename,  **params):
+def readOPTLib(filename, dataModel, **params):
     node_data_filename = "/../data/" + filename
 
     with open(os.path.dirname(__file__) + node_data_filename) as f_obj:
@@ -187,14 +188,15 @@ def readOPTLib(filename,  **params):
         optSolution = nodeData[indexFirstCustomer].strip("\n").split(" ")
     else:
         if len(nodeData[indexFirstCustomer]) == 2:
-            for line in nodeData[indexFirstCustomer : indexLastCustomer + 1]:
+            for line in nodeData[indexFirstCustomer:indexLastCustomer + 1]:
                 optSolution.append(line.strip("\n"))
+
         elif len(nodeData[indexFirstCustomer]) > 2:
-            for line in nodeData[indexFirstCustomer : indexLastCustomer + 1]:
+            for line in nodeData[indexFirstCustomer:indexLastCustomer + 1]:
                 customerInLine = line.strip("\n").split(" ")
                 customerInLine = [i for i in customerInLine if i != '']
                 optSolution.extend(customerInLine) 
 
     optSolution = [int(i) for i in optSolution]
-    print(optSolution)
-    return Solution(optSolution)
+    return Solution(optSolution, dataModel)
+

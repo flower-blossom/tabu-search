@@ -1,12 +1,13 @@
 class IsFeasible():
     '''A class check the solution '''
     def __init__(self, solution, dataModel):
-        self.solution = solution.solutionList
-        self.dataDescription = dataModel.dataDescription
+        self.solution = solution.solution
+        self.quantityCustomer = dataModel.dataDescription["DIMENSION"]
 
     def checkSolution(self):
-        quantityCustomer = self.dataDescription["DIMENSION"]
-        checkCustomers = [False for i in range(quantityCustomer)]
+        if self.quantityCustomer != len(self.solution):
+            return False 
+        checkCustomers = [False for i in range(self.quantityCustomer)]
         for customer in self.solution:
             if checkCustomers[customer - 1] == True:
                 return False

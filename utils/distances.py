@@ -39,7 +39,7 @@ def getDistance(customer1, customer2, edgeWeightType):
         q1 = math.cos(customer1.coordinate['lon'] - customer2.coordinate['lon'])
         q2 = math.cos(customer1.coordinate['lat'] - customer2.coordinate['lat'])
         q3 = math.cos(customer1.coordinate['lat'] + customer2.coordinate['lat'])
-        d = int(rrr * math.acos(0.5 * ((1.0 + q1) * q2 - (1.0 - q1) * q3)) + 1.0 )
+        d = int(rrr * math.acos(0.5 * ((1.0 + q1) * q2 - (1.0 - q1) * q3)) + 1.0)
     elif edgeWeightType == 'ATT':
         dx = getDX(customer1, customer2)
         dy = getDY(customer1, customer2)
